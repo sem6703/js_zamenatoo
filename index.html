@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAOGSURBVDhPJdJ9TNVVGMDxw+Wde3kRdAaasYFtWoQjnWGb4gAHm6CoTSWJtLRZKFlpN3IE4y0TVOLu8uKQeyUYhLw4UEQkr0HCeBsxSSMBB0hCtdC8jZj67UH+ODvP7+yczznP8/xUSlkbwatWsszLFR93BzYE+rDzQDRvpyYQZ/iKOPNpYi+Y2H3dQnzfEAdv/867faNsycvBf6kbam9WBSFLdNjYKXRKEfWqF4lHd/FxfgqflKRx5LtvSGwo4fDPPSSP3MMwPsnpv2c5+NsQgd5aVOArqwnxckEJsFzGntXepCfHk3E+i/Ti46SXp5Px0wXSJocxPvqLGquVstmnfH6jlvVuGpTO0YlVrjqUo2KRvGCdqw36qCAMBccwmJLIzT9E7qkEMs98QVbecXKqizD80sOhT7exSSuAjb0GPyfH50Ck9wLCX3Bl8yJb0mICKKn4ksKGk+Slx5IcvpK0t8IwtfXQBOzbG0uokw1KOWh4UzufQpCblsXOtrKoeF3G+ZoMOmVzUVs9Oz0VAbJ2OCwMQ+ZpPgwOYIONkheIErHY4znga2dLqP9Clkm8VjZX/VBEtwDm/layIvz4en8ENb29FDddQr/xJTbKPqV0Grxd5m8N1SoS31hKsMTvL1HU3u/i5tNZKv+dwmgpo7CzmnLrGDcErRtu5T1puVJudlJJW9zl0Acr3Ihf4cI6ibP3hVD+aJi+mcdceTiO+XYzpXctXPnzVx4+e8ITQaos1XOAPcrDjoVyaP+LzkS7KzZJbpXVJ2jAiuW/aWoH6vn+ZikXJ+/Qa50W4BkzAvRYpwRwnQc8BXjHS0OMAJESm08doLi+iEvN5VRWJHGx7iSNU2Pcsj7m7sw/jM5YaZ++L4BW8neXfjrIT+TlwNFwfyKlFvrQ5RibTRQ0mym8WkzpjxU0jN+j68EE3ROjDPzxgJaJYQFcpJI66afMc5Xf8rIbMX5aMnYHc9aYRI6liuyBDqoG+2kbHeH60B06Rga5NTZC4+CAAM4CzCFyq48Aa+R7m4c9H3nr0Psu4ExcFKnF2Rg7W6nqbqeiq526vk5a+vswdXYIIH+gcppHXKSvr0m8Vtp6ZH0QydGhpOr1JBiz+ezqZZKbGkiRkXmtkeyWaxy7XC+AvRyW/OcgW5n95AUBnhoi1/iyfUcIW5MS2Jx7gq3nCthuPsuu0nPsKTOzo9REWP63/A9LfT5MoLhg6gAAAABJRU5ErkJggg==">
+  <title>Doc</title>
+  <style>
+  *:not(hr), *::after, *::before {box-sizing: border-box;margin:0;padding:0;border:0}ul {list-style-type: none}
+#i{padding: 33px 0;background: linear-gradient(rgba(0,0,0,0.9), blue); 
+text-align: center;
+}
+/*this.offsetLeft-b.style.borderLeftWidth*/
+  </style>  
+</head>
+<body text=#ded bgcolor=navy>
+<div id="d1" style="margin-top: 33px;width:23px;aspect-ratio:1; background: yellow;border:5px solid white;"></div>
+<center>
+<button id="b" style="background: cyan;">
+<svg id="g" width="700" height="415" viewBox="0 0 700 415" fill="none"
+onclick="
+yrr.push({x:event.clientX-b.offsetLeft,y:event.clientY-b.offsetTop,w:32,h:32,stroke:'red',opacity:'0.5',fill:'lime'});
+
+this.innerHTML+=`<rect id=ux x=${yrr[0].x} y=${yrr[0].y} width=${yrr[0].w} height=${yrr[0].h} opacity=.5 fill=lime stroke=red onclick=fn(this)></rect>`;
+
+
+//console.log(b.offsetWidth+' offsetWidth');
+//console.log(b.clientLeft+' clientLeft');
+//console.log(b.offsetLeft+' offsetLeft');
+//console.log(d1.offsetParentX+' offsetParent');
+//console.log(d1.offsetLeft+' offsetLeft');
+"
+	
+>
+<style type="text/css">
+.rect1, .polygon1 {stroke: blue;}
+.txt1 {font-family: Arial; font-size: 12px; line-height: 0; fill:white;}
+textPath {font-family: sans-serif; font-size: 16px;}
+</style>
+<rect class="x" x="0" y="0" width="700" height="415" fill="#ded"></rect>
+<ellipse class="x" cx="338.0" cy="255.0" rx="24.5" ry="10" stroke="blue" fill="cyan" opacity="1" stroke-width="1"></ellipse>
+<ellipse class="x" cx="387.0" cy="302.5" rx="24.5" ry="10" stroke="blue" fill="cyan" opacity="1" stroke-width="1"></ellipse>
+<polygon class="rect1 x" points="288.5 362.5 301 325 313.5 362.5" opacity="1" fill="fuchsia"></polygon>
+	<defs><path id="tp3" d="M306,320.0 556,70.0"></path></defs>	<use xlink:href="#tp3"></use>	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp3">	img	</textPath></text>
+<polygon class="rect1 x" points="325.5 227.5 338 152.5 350.5 227.5" opacity="1" fill="red"></polygon>
+	<defs><path id="tp4" d="M338,149.5 588,-100.5"></path></defs>	<use xlink:href="#tp4"></use>	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp4">	svg	</textPath></text>
+<rect class="rect1 x" x="325.5" y="227.5" width="25" height="37.5" opacity="1" fill="gold"></rect>
+	<defs><path id="tp5" d="M360.5,217.5 610.5,-32.5"></path></defs>	<use xlink:href="#tp5"></use>	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp5">	div	</textPath></text>
+<polygon class="rect1 x" points="374.5 312.5 387 275 399.5 312.5" opacity="1" fill="fuchsia"></polygon>
+	<defs><path id="tp6" d="M392,270.0 642,20.0"></path></defs>	<use xlink:href="#tp6"></use>	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp6">	img	</textPath></text>
+<rect class="rect1 x" x="313.5" y="325.0" width="98" height="37.5" opacity="1" fill="gold"></rect>
+	<defs><path id="tp7" d="M421.5,315.0 671.5,65.0"></path></defs>	<use xlink:href="#tp7"></use>	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp7">	div	</textPath></text>
+<rect class="rect1 x" x="288.5" y="362.5" width="123" height="37.5" opacity="1" fill="gold"></rect>
+	<defs><path id="tp8" d="M421.5,352.5 671.5,102.5"></path></defs>	<use xlink:href="#tp8"></use>	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp8">	div	</textPath></text>
+<path class="rect1 x" d="M329.8 325 
+	C338.5 298.9 305.3 298.9
+	313.5 254.5 
+	C321.7 266.5 329.8 264.5
+338 265.5 
+	C346.2 264.5 354.3 266.5
+	362.5 254.5 
+	C370.7 298.9 337.5 298.9
+	346.17 325z" opacity="1" fill="yellow"></path>
+	<defs><path id="tp9" d="M372.5,253.5 622.5,4.5"></path></defs>
+	<use xlink:href="#tp9"></use>	
+	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp9">
+	div
+	</textPath></text><path class="x" d="M387.0 324.4 
+	C387.5 322.4 354.3 317.4
+	362.5 302.4 
+	C370.7 314.4 378.8 312.4
+387 313.4 
+	C395.2 312.4 403.3 314.4
+	411.5 302.4 
+	C419.7 317.4 386.5 322.4
+	387.00 324.4z" opacity="1" stroke="none" fill="white"></path>
+
+	<path d="
+	M362.5 302.4 
+	C370.7 314.4 378.8 312.4
+387 313.4 
+	C395.2 312.4 403.3 314.4
+	411.5 302.4" stroke-width="2" stroke="blue"></path>
+<defs><path id="tp0" d="M419,246 C449, 187 469, 142 478,123"></path></defs><use xlink:href="#tp0"></use><text x="0" y="0" fill="navy"><textPath xlink:href="#tp0"></textPath></text></svg>
+</button>
+
+
+<div id=i></div>
+<script>
+let ben=true;
+let ux;
+let yrr=[
+
+
+];
+
+
+//function fn(x){x.setAttribute('fill',['lime','none'][1^['lime','none'].indexOf(x.getAttribute('fill'))])}
+//let c=['lime','none'];
+let c=['none','lime'];
+function fn(x){
+//x.setAttribute('fill','red');
+x.setAttribute('fill',c[+('lime'===x.getAttribute('fill'))]); 
+alert(x.getAttribute('fill'));
+//x.stopPropagation();
+console.log('red'^'red'^'lime');
+console.log('lime'^'red'^'lime');
+
+}
+/*function fn(x){
+x.setAttribute('fill',['lime','none'][1^(+('lime'===x.getAttribute('fill')))]);
+x.stopPropagation();
+}
+*/
+ //********************* выбранная точка перемещается курсорными клавишами
+ document.addEventListener('keydown', (e) => {// ←↑↓→
+    if(ux)
+	switch(e.keyCode) {
+		case 40: {//↓
+		 if(ben)
+		  yrr[0]['y']=yrr[0]['y']+1;
+		  else
+		  yrr[0]['h']=yrr[0]['h']+1;
+		  //ux.setAttribute('y',yrr[0]['y']);
+		  //alert(ux.getAttribute('y'));
+		  break;
+		}
+		case 38: {//↑
+			if(ben)
+		  yrr[0]['y']=yrr[0]['y']-1;
+		  else
+		  yrr[0]['h']=yrr[0]['h']-1;
+		  break;
+		}	  
+		case 39: {//→
+			if(ben)
+		  yrr[0]['x']=yrr[0]['x']+1;
+		  else
+		  yrr[0]['w']=yrr[0]['w']+1;
+		  break;
+		}
+		case 37: {//←
+			if(ben)
+		  yrr[0]['x']=yrr[0]['x']-1;
+		  else
+		  yrr[0]['w']=yrr[0]['w']-1;
+		  break;
+		}
+		case 96: { // numpad0
+			ben=!ben;
+			yrr[0]['stroke']=['purple','red'][+ben];
+			break;
+		}
+		default: break;
+	  }
+	  ux.setAttribute('x',yrr[0]['x']);
+	  ux.setAttribute('y',yrr[0]['y']);
+	  ux.setAttribute('width',yrr[0]['w']);
+	  ux.setAttribute('height',yrr[0]['h']);
+	  ux.setAttribute('opacity',yrr[0]['opacity']);	  
+	  ux.setAttribute('fill',yrr[0]['fill']);	  
+	  ux.setAttribute('stroke',yrr[0]['stroke']);
+	  
+	  }
+
+	);
+//**************************
+</script>   
+</body>
+</html>
