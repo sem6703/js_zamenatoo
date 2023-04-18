@@ -20,9 +20,11 @@ text-align: center;
 <button id="b" style="background: cyan;">
 <svg id="g" width="700" height="415" viewBox="0 0 700 415" fill="none"
 onclick="
+if(r) {r=false; return 0;}
 yrr.push({x:event.clientX-b.offsetLeft,y:event.clientY-b.offsetTop,w:32,h:32,stroke:'red',opacity:'0.5',fill:'lime'});
-
-this.innerHTML+=`<rect id=ux x=${yrr[0].x} y=${yrr[0].y} width=${yrr[0].w} height=${yrr[0].h} opacity=.5 fill=lime stroke=red onclick=fn(this)></rect>`;
+//yrr[0]=({x:event.clientX-b.offsetLeft,y:event.clientY-b.offsetTop,w:32,h:32,stroke:'red',opacity:'0.5',fill:'lime'});
+let w=yrr.push()-1;
+g.innerHTML+=`<rect id=ux${w} x=${yrr[w].x} y=${yrr[w].y} width=${yrr[w].w} height=${yrr[w].h} opacity=.5 fill=lime stroke=red onclick=fn(this,this.getAttribute('fill'))></rect>`;
 
 
 //console.log(b.offsetWidth+' offsetWidth');
@@ -86,8 +88,12 @@ textPath {font-family: sans-serif; font-size: 16px;}
 </button>
 
 
-<div id=i></div>
+<div id=i>
+<button id="btn">do group</button>
+</div>
 <script>
+let bb=[];// все группв букв
+let r=false;
 let ben=true;
 let ux;
 let yrr=[
@@ -98,24 +104,46 @@ let yrr=[
 
 //function fn(x){x.setAttribute('fill',['lime','none'][1^['lime','none'].indexOf(x.getAttribute('fill'))])}
 //let c=['lime','none'];
-let c=['none','lime'];
-function fn(x){
+//let c=['none','lime'];
+function fn(x,y){
+
+if(y=='lime')
+x.setAttribute('fill','red');
+if(y=='red')//else
+x.setAttribute('fill','lime');
+if(y=='black')//else
+x.setAttribute('fill','lime');
+r=true;
 //x.setAttribute('fill','red');
-x.setAttribute('fill',c[+('lime'===x.getAttribute('fill'))]); 
+/*x.setAttribute('fill',c[+('lime'===x.getAttribute('fill'))]); 
 alert(x.getAttribute('fill'));
-//x.stopPropagation();
+//event.stopPropagation();
 console.log('red'^'red'^'lime');
 console.log('lime'^'red'^'lime');
-
+*/
 }
 /*function fn(x){
 x.setAttribute('fill',['lime','none'][1^(+('lime'===x.getAttribute('fill')))]);
 x.stopPropagation();
 }
 */
+btn.addEventListener('click',()=>{
+let m=[];
+let a=[...document.querySelectorAll('[id^="ux"]')];
+//let [a]=document.querySelectorAll('[id^="ux"]');
+a.forEach((x,i)=>{if(x.getAttribute('fill')=='red')
+	{x.setAttribute('fill','black');m.push(i)}});
+bb.push(m);
+bb.sort((a,b)=>b.length-a.length);
+//return m;
+//alert(a.length);
+console.log(bb);
+});
+
+
  //********************* выбранная точка перемещается курсорными клавишами
  document.addEventListener('keydown', (e) => {// ←↑↓→
-    if(ux)
+    //if(ux)
 	switch(e.keyCode) {
 		case 40: {//↓
 		 if(ben)
