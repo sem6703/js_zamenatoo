@@ -21,17 +21,13 @@ text-align: center;
 <svg id="g" width="700" height="415" viewBox="0 0 700 415" fill="none"
 onclick="
 if(r) {r=false; return 0;}
-yrr.push({x:event.clientX-b.offsetLeft,y:event.clientY-b.offsetTop,w:32,h:32,stroke:'red',opacity:'0.5',fill:'lime'});
+yrr.push({x:event.clientX-b.offsetLeft,y:event.clientY-b.offsetTop,w:32,h:32,
+stroke:'red',opacity:'0.5',fill:'lime',a:' ',});
 //yrr[0]=({x:event.clientX-b.offsetLeft,y:event.clientY-b.offsetTop,w:32,h:32,stroke:'red',opacity:'0.5',fill:'lime'});
 let w=yrr.push()-1;
-g.innerHTML+=`<rect id=ux${w} x=${yrr[w].x} y=${yrr[w].y} width=${yrr[w].w} height=${yrr[w].h} opacity=.5 fill=lime stroke=red onclick=fn(this,this.getAttribute('fill'))></rect>`;
-
-
-//console.log(b.offsetWidth+' offsetWidth');
-//console.log(b.clientLeft+' clientLeft');
-//console.log(b.offsetLeft+' offsetLeft');
-//console.log(d1.offsetParentX+' offsetParent');
-//console.log(d1.offsetLeft+' offsetLeft');
+q=w;// курсор//
+//alert(q);
+g.innerHTML+=`<rect id=ux${w} x=${yrr[w].x} y=${yrr[w].y} width=${yrr[w].w} height=${yrr[w].h} opacity=.5 fill=lime stroke=red onclick=fn(this,this.getAttribute('fill'),${w})></rect>`;
 "
 	
 >
@@ -92,10 +88,11 @@ textPath {font-family: sans-serif; font-size: 16px;}
 <button id="btn">do group</button>
 </div>
 <script>
+let q=0;// курсор квадратов
 let bb=[];// все группв букв
 let r=false;
 let ben=true;
-let ux;
+//let ux;
 let yrr=[
 
 
@@ -105,15 +102,16 @@ let yrr=[
 //function fn(x){x.setAttribute('fill',['lime','none'][1^['lime','none'].indexOf(x.getAttribute('fill'))])}
 //let c=['lime','none'];
 //let c=['none','lime'];
-function fn(x,y){
+function fn(x,y,z){
 
 if(y=='lime')
-x.setAttribute('fill','red');
+{x.setAttribute('fill','red');yrr[z]['fill']='red'}
 if(y=='red')//else
-x.setAttribute('fill','lime');
+{x.setAttribute('fill','lime');yrr[z]['fill']='lime'}
 if(y=='black')//else
-x.setAttribute('fill','lime');
+{x.setAttribute('fill','lime');yrr[z]['fill']='lime'}
 r=true;
+q=z;//
 //x.setAttribute('fill','red');
 /*x.setAttribute('fill',c[+('lime'===x.getAttribute('fill'))]); 
 alert(x.getAttribute('fill'));
@@ -137,58 +135,64 @@ bb.push(m);
 bb.sort((a,b)=>b.length-a.length);
 //return m;
 //alert(a.length);
-console.log(bb);
+let alf='АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя';
+bb.forEach((x,i)=>{x.forEach(j=>{yrr[j]['a']=alf[i]})});
+let aa=yrr.map(i=>i['a']).join('');
+console.log(aa);
 });
 
 
  //********************* выбранная точка перемещается курсорными клавишами
  document.addEventListener('keydown', (e) => {// ←↑↓→
     //if(ux)
+	if(!(yrr[q])) return 0;
+	//alert(q);
 	switch(e.keyCode) {
 		case 40: {//↓
 		 if(ben)
-		  yrr[0]['y']=yrr[0]['y']+1;
+		  yrr[q]['y']=yrr[q]['y']+1;
 		  else
-		  yrr[0]['h']=yrr[0]['h']+1;
+		  yrr[q]['h']=yrr[q]['h']+1;
 		  //ux.setAttribute('y',yrr[0]['y']);
 		  //alert(ux.getAttribute('y'));
 		  break;
 		}
 		case 38: {//↑
 			if(ben)
-		  yrr[0]['y']=yrr[0]['y']-1;
+		  yrr[q]['y']=yrr[q]['y']-1;
 		  else
-		  yrr[0]['h']=yrr[0]['h']-1;
+		  yrr[q]['h']=yrr[q]['h']-1;
 		  break;
 		}	  
 		case 39: {//→
 			if(ben)
-		  yrr[0]['x']=yrr[0]['x']+1;
+		  yrr[q]['x']=yrr[q]['x']+1;
 		  else
-		  yrr[0]['w']=yrr[0]['w']+1;
+		  yrr[q]['w']=yrr[q]['w']+1;
 		  break;
 		}
 		case 37: {//←
 			if(ben)
-		  yrr[0]['x']=yrr[0]['x']-1;
+		  yrr[q]['x']=yrr[q]['x']-1;
 		  else
-		  yrr[0]['w']=yrr[0]['w']-1;
+		  yrr[q]['w']=yrr[q]['w']-1;
 		  break;
 		}
 		case 96: { // numpad0
 			ben=!ben;
-			yrr[0]['stroke']=['purple','red'][+ben];
+			yrr[q]['stroke']=['purple','red'][+ben];
 			break;
 		}
 		default: break;
 	  }
-	  ux.setAttribute('x',yrr[0]['x']);
-	  ux.setAttribute('y',yrr[0]['y']);
-	  ux.setAttribute('width',yrr[0]['w']);
-	  ux.setAttribute('height',yrr[0]['h']);
-	  ux.setAttribute('opacity',yrr[0]['opacity']);	  
-	  ux.setAttribute('fill',yrr[0]['fill']);	  
-	  ux.setAttribute('stroke',yrr[0]['stroke']);
+	  let a=[...document.querySelectorAll('[id^="ux"]')];
+	  a[q].setAttribute('x',yrr[q]['x']);
+	  a[q].setAttribute('y',yrr[q]['y']);
+	  a[q].setAttribute('width',yrr[q]['w']);
+	  a[q].setAttribute('height',yrr[q]['h']);
+	  a[q].setAttribute('opacity',yrr[q]['opacity']);	  
+	  a[q].setAttribute('fill',yrr[q]['fill']);	  
+	  a[q].setAttribute('stroke',yrr[q]['stroke']);
 	  
 	  }
 
