@@ -17,17 +17,46 @@ text-align: center;
 <body text=#ded bgcolor=navy>
 <div id="d1" style="margin-top: 33px;width:23px;aspect-ratio:1; background: yellow;border:5px solid white;"></div>
 <center>
-<button id="b" style="background: cyan;">
+<button id="b" style="background: cyan;
+background-image: url(img/cipher00.png);
+
+
+">
 <svg id="g" width="700" height="415" viewBox="0 0 700 415" fill="none"
 onclick="
 if(r) {r=false; return 0;}
-yrr.push({x:event.clientX-b.offsetLeft,y:event.clientY-b.offsetTop,w:32,h:32,
-stroke:'red',opacity:'0.5',fill:'lime',a:' ',});
-//yrr[0]=({x:event.clientX-b.offsetLeft,y:event.clientY-b.offsetTop,w:32,h:32,stroke:'red',opacity:'0.5',fill:'lime'});
+let xx=event.clientX-b.offsetLeft;
+let yy=event.clientY-b.offsetTop;
+let hh=47;
+let ww=24;
+if (yy>fu1&&yy<fu2) // попадание в фарватер
+	{
+	yrr.push({x:fx,y:fu1,w:xx-fx,h:fu2-fu1,
+	stroke:'red',opacity:'0.2',fill:'lime',a:' ',});
+	fx=xx;
+	fu1=fu1; // каждый щелчек задает новый фарватер
+	fu2=fu2;		
+	}
+	else
+	{
+	yrr.push({x:xx,y:yy,w:24,h:47,
+	stroke:'red',opacity:'0.2',fill:'lime',a:' ',});
+	fx=xx+ww;
+	fu1=yy; // каждый щелчек задает новый фарватер
+	fu2=yy+hh;	
+	
+	}
+
+
+
+
 let w=yrr.push()-1;
 q=w;// курсор//
+ben=true;
 //alert(q);
-g.innerHTML+=`<rect id=ux${w} x=${yrr[w].x} y=${yrr[w].y} width=${yrr[w].w} height=${yrr[w].h} opacity=.5 fill=lime stroke=red onclick=fn(this,this.getAttribute('fill'),${w})></rect>`;
+g.innerHTML+=`<rect id=ux${w} x=${yrr[w].x} y=${yrr[w].y} width=${yrr[w].w} height=${yrr[w].h} opacity=.2 fill=lime stroke=red onclick=fn(this,this.getAttribute('fill'),${w})></rect>`;
+//<rect class="x" x="0" y="0" width="700" height="415" fill="#ded"></rect>
+
 "
 	
 >
@@ -36,58 +65,64 @@ g.innerHTML+=`<rect id=ux${w} x=${yrr[w].x} y=${yrr[w].y} width=${yrr[w].w} heig
 .txt1 {font-family: Arial; font-size: 12px; line-height: 0; fill:white;}
 textPath {font-family: sans-serif; font-size: 16px;}
 </style>
-<rect class="x" x="0" y="0" width="700" height="415" fill="#ded"></rect>
-<ellipse class="x" cx="338.0" cy="255.0" rx="24.5" ry="10" stroke="blue" fill="cyan" opacity="1" stroke-width="1"></ellipse>
-<ellipse class="x" cx="387.0" cy="302.5" rx="24.5" ry="10" stroke="blue" fill="cyan" opacity="1" stroke-width="1"></ellipse>
-<polygon class="rect1 x" points="288.5 362.5 301 325 313.5 362.5" opacity="1" fill="fuchsia"></polygon>
-	<defs><path id="tp3" d="M306,320.0 556,70.0"></path></defs>	<use xlink:href="#tp3"></use>	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp3">	img	</textPath></text>
-<polygon class="rect1 x" points="325.5 227.5 338 152.5 350.5 227.5" opacity="1" fill="red"></polygon>
-	<defs><path id="tp4" d="M338,149.5 588,-100.5"></path></defs>	<use xlink:href="#tp4"></use>	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp4">	svg	</textPath></text>
-<rect class="rect1 x" x="325.5" y="227.5" width="25" height="37.5" opacity="1" fill="gold"></rect>
-	<defs><path id="tp5" d="M360.5,217.5 610.5,-32.5"></path></defs>	<use xlink:href="#tp5"></use>	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp5">	div	</textPath></text>
-<polygon class="rect1 x" points="374.5 312.5 387 275 399.5 312.5" opacity="1" fill="fuchsia"></polygon>
-	<defs><path id="tp6" d="M392,270.0 642,20.0"></path></defs>	<use xlink:href="#tp6"></use>	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp6">	img	</textPath></text>
-<rect class="rect1 x" x="313.5" y="325.0" width="98" height="37.5" opacity="1" fill="gold"></rect>
-	<defs><path id="tp7" d="M421.5,315.0 671.5,65.0"></path></defs>	<use xlink:href="#tp7"></use>	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp7">	div	</textPath></text>
-<rect class="rect1 x" x="288.5" y="362.5" width="123" height="37.5" opacity="1" fill="gold"></rect>
-	<defs><path id="tp8" d="M421.5,352.5 671.5,102.5"></path></defs>	<use xlink:href="#tp8"></use>	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp8">	div	</textPath></text>
-<path class="rect1 x" d="M329.8 325 
-	C338.5 298.9 305.3 298.9
-	313.5 254.5 
-	C321.7 266.5 329.8 264.5
-338 265.5 
-	C346.2 264.5 354.3 266.5
-	362.5 254.5 
-	C370.7 298.9 337.5 298.9
-	346.17 325z" opacity="1" fill="yellow"></path>
-	<defs><path id="tp9" d="M372.5,253.5 622.5,4.5"></path></defs>
+
+<ellipse class="x" cx="588.0" cy="255.0" rx="24.5" ry="10" stroke="blue" fill="cyan" opacity="1" stroke-width="1"></ellipse>
+<ellipse class="x" cx="637.0" cy="302.5" rx="24.5" ry="10" stroke="blue" fill="cyan" opacity="1" stroke-width="1"></ellipse>
+
+<polygon class="rect1 x" points="538.5 362.5 551 325 563.5 362.5" opacity="1" fill="fuchsia"></polygon>
+	<defs><path id="tp3" d="M556,320.0 806,70.0"></path></defs>	<use xlink:href="#tp3"></use>	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp3">	img	</textPath></text>
+
+<polygon class="rect1 x" points="575.5 227.5 588 152.5 600.5 227.5" opacity="1" fill="red"></polygon>
+	<defs><path id="tp4" d="M588,149.5 838,-100.5"></path></defs>	<use xlink:href="#tp4"></use>	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp4">	svg	</textPath></text>
+<rect class="rect1 x" x="575.5" y="227.5" width="25" height="37.5" opacity="1" fill="gold"></rect>
+	<defs><path id="tp5" d="M610.5,217.5 860.5,-32.5"></path></defs>	<use xlink:href="#tp5"></use>	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp5">	div	</textPath></text>
+<polygon class="rect1 x" points="624.5 312.5 637 275 649.5 312.5" opacity="1" fill="fuchsia"></polygon>
+	<defs><path id="tp6" d="M642,270.0 892,20.0"></path></defs>	<use xlink:href="#tp6"></use>	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp6">	img	</textPath></text>
+<rect class="rect1 x" x="563.5" y="325.0" width="98" height="37.5" opacity="1" fill="gold"></rect>
+	<defs><path id="tp7" d="M671.5,315.0 921.5,65.0"></path></defs>	<use xlink:href="#tp7"></use>	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp7">	div	</textPath></text>
+<rect class="rect1 x" x="538.5" y="362.5" width="123" height="37.5" opacity="1" fill="gold"></rect>
+	<defs><path id="tp8" d="M671.5,352.5 921.5,102.5"></path></defs>	<use xlink:href="#tp8"></use>	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp8">	div	</textPath></text>
+<path class="rect1 x" d="M579.8 325 
+	C588.5 298.9 555.3 298.9
+	563.5 254.5 
+	C571.7 266.5 579.8 264.5
+588 265.5 
+	C596.2 264.5 604.3 266.5
+	612.5 254.5 
+	C620.7 298.9 587.5 298.9
+	596.17 325z" opacity="1" fill="yellow"></path>
+	<defs><path id="tp9" d="M622.5,253.5 872.5,4.5"></path></defs>
 	<use xlink:href="#tp9"></use>	
 	<text x="0" y="0" fill="navy"><textPath xlink:href="#tp9">
 	div
-	</textPath></text><path class="x" d="M387.0 324.4 
-	C387.5 322.4 354.3 317.4
-	362.5 302.4 
-	C370.7 314.4 378.8 312.4
-387 313.4 
-	C395.2 312.4 403.3 314.4
-	411.5 302.4 
-	C419.7 317.4 386.5 322.4
-	387.00 324.4z" opacity="1" stroke="none" fill="white"></path>
+	</textPath></text><path class="x" d="M637.0 324.4 
+	C637.5 322.4 604.3 317.4
+	612.5 302.4 
+	C620.7 314.4 628.8 312.4
+637 313.4 
+	C645.2 312.4 653.3 314.4
+	661.5 302.4 
+	C669.7 317.4 636.5 322.4
+	637.00 324.4z" opacity="1" stroke="none" fill="white"></path>
 
 	<path d="
-	M362.5 302.4 
-	C370.7 314.4 378.8 312.4
-387 313.4 
-	C395.2 312.4 403.3 314.4
-	411.5 302.4" stroke-width="2" stroke="blue"></path>
+	M612.5 302.4 
+	C620.7 314.4 628.8 312.4
+637 313.4 
+	C645.2 312.4 653.3 314.4
+	661.5 302.4" stroke-width="2" stroke="blue"></path>
 <defs><path id="tp0" d="M419,246 C449, 187 469, 142 478,123"></path></defs><use xlink:href="#tp0"></use><text x="0" y="0" fill="navy"><textPath xlink:href="#tp0"></textPath></text></svg>
 </button>
 
 
 <div id=i>
-<button id="btn">do group</button>
+<button id="btn" style="padding: 4px;border-radius: 4px;font-size: 16px;">do group</button>
 </div>
+<textarea id="ta1" rows="2" cols="90" style="d0isplay:none;color: white; background: #1a0e5a;">
+
+</textarea>
 <script>
+let fu1=0, fu2=0, fx=0;
 let q=0;// курсор квадратов
 let bb=[];// все группв букв
 let r=false;
@@ -103,13 +138,13 @@ let yrr=[
 //let c=['lime','none'];
 //let c=['none','lime'];
 function fn(x,y,z){
-
+ben=true;
 if(y=='lime')
-{x.setAttribute('fill','red');yrr[z]['fill']='red'}
+{x.setAttribute('fill','red');x.setAttribute('opacity','.5');yrr[z]['fill']='red'}
 if(y=='red')//else
-{x.setAttribute('fill','lime');yrr[z]['fill']='lime'}
+{x.setAttribute('fill','lime');x.setAttribute('opacity','.2');yrr[z]['fill']='lime'}
 if(y=='black')//else
-{x.setAttribute('fill','lime');yrr[z]['fill']='lime'}
+{x.setAttribute('fill','lime');x.setAttribute('opacity','.2');yrr[z]['fill']='lime'}
 r=true;
 q=z;//
 //x.setAttribute('fill','red');
@@ -130,15 +165,24 @@ let m=[];
 let a=[...document.querySelectorAll('[id^="ux"]')];
 //let [a]=document.querySelectorAll('[id^="ux"]');
 a.forEach((x,i)=>{if(x.getAttribute('fill')=='red')
-	{x.setAttribute('fill','black');m.push(i)}});
+	{x.setAttribute('fill','black');x.setAttribute('opacity','.5');m.push(i)}});
+	
+const mySet = new Set(m);	
+// перед тем как добавить почистим большой массив от массивов полностью входящих в m
+// хм... да ну неможет же быть.. чтобы не было пересечний множеств, их сравниений?
+// заебисто будет каждый элемент множества поштучно обработать
+//bb.filter(i=>{let n=new Set(i);});
+bb=bb.filter(i=>!i.every(j=>m.includes(j)));// подмассивы удаляю
+m.forEach(x=>{bb=bb.map(i=>i.filter(k=>k!==x))});// дубли элементов удаляю
+bb=bb.filter(i=>i!==[]);//пустые массивы удалить
 bb.push(m);
 bb.sort((a,b)=>b.length-a.length);
-//return m;
-//alert(a.length);
+
 let alf='АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя';
 bb.forEach((x,i)=>{x.forEach(j=>{yrr[j]['a']=alf[i]})});
 let aa=yrr.map(i=>i['a']).join('');
-console.log(aa);
+console.log(bb);//console.log(aa);//
+ta1.value=aa;
 });
 
 
@@ -150,32 +194,58 @@ console.log(aa);
 	switch(e.keyCode) {
 		case 40: {//↓
 		 if(ben)
+		  {
 		  yrr[q]['y']=yrr[q]['y']+1;
+		  fu1++;
+		  fu2++;
+		  }
 		  else
+		  {
 		  yrr[q]['h']=yrr[q]['h']+1;
+		  fu2++;
+		  }
 		  //ux.setAttribute('y',yrr[0]['y']);
 		  //alert(ux.getAttribute('y'));
 		  break;
 		}
 		case 38: {//↑
 			if(ben)
+		  {	
 		  yrr[q]['y']=yrr[q]['y']-1;
+		  fu1--;
+		  fu2--;
+		  }
 		  else
+		  {
 		  yrr[q]['h']=yrr[q]['h']-1;
+		  fu2--;
+		  }
 		  break;
 		}	  
 		case 39: {//→
 			if(ben)
+			{
 		  yrr[q]['x']=yrr[q]['x']+1;
+		  fx++;
+		  }
 		  else
+		  {
 		  yrr[q]['w']=yrr[q]['w']+1;
+		  fx++;
+		  }
 		  break;
 		}
 		case 37: {//←
 			if(ben)
+			{
 		  yrr[q]['x']=yrr[q]['x']-1;
+		  fx--;
+		  }
 		  else
+		  {
 		  yrr[q]['w']=yrr[q]['w']-1;
+		  fx--;
+		  }
 		  break;
 		}
 		case 96: { // numpad0
