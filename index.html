@@ -177,8 +177,7 @@ m.forEach(x=>{bb=bb.map(i=>i.filter(k=>k!==x))});// дубли элементо�
 bb=bb.filter(i=>i!==[]);//пустые массивы удалить
 bb.push(m);
 bb.sort((a,b)=>b.length-a.length);
-//return m;
-//alert(a.length);
+
 let alf='АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя';
 bb.forEach((x,i)=>{x.forEach(j=>{yrr[j]['a']=alf[i]})});
 let aa=yrr.map(i=>i['a']).join('');
