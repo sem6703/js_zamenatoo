@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href=
+  
+"data:image/gif;base64,R0lGODlhEAAQAPcAAD09PT49Pj0+PT4+Pjo8PDU2NDw+PGZlZV5eXo2NjTc3N2RkZEBAQDs7Ozo6OlRUVGVjXltcXV9lahwbGQECAXBwby8vL0hISExMTDw9PT08PDw8PDw8OFFRUllZWUhJTU5diAAEEQAAAAcEB0A2NlJVUTw/PzQ0NE1NTC0xTlNUVkJEQAMKFhAYPQwQNQAABE1qdVKMli0lND42Nmtqa2FhYYqLhwMDC0dHThgnSRw2ZgIHIQABCxNeZQkwRgECCVRVU4F/fRcYFQICBxIaNAUGDCxKgRQmWwADFjIXEXY9OKlZRUMcHwMCEQcSHGptfwAADgEAAAEBBAsPGwYIDRkIAGRMRo+Zndt0Xv2PcrR3ahMVLzxMgAAGLQUJFwEABBMZKQADFwQPKyMrNh01P7JYRf+YdP+yf2VSWwAKNggacBUtkAcJKQ0NEQ4RMnxeW+GHZ/B+Zf+Ydv/Ci/iiauSbeyIYHRIOHhYaJS0VF4A8O0AgFpuKhOR7Zn42OYleTXFVQ2dwewALHyU6UTY8Yjg6TgMDBAUJEBYyah0zWRcYHmJsa59SSpVNSn9MQ6FmWDZIVktUVTpeYwsPFRIVIgICBQYGCAYNGhUAAAAADS4+TU1KTF5jZkNBURAcTwAAMQcHDSo1R3JydDhTfg8WLQwMEhwpOxEePUNLWlRganZ4dj45OTs8OVNRSpKQhiIuawEABmlsclxZVlVWWXJtbWVjX2lnbGBbXFRRTUlISDk4NzU1Nzo9Ozg2N1FRSCAtaAEBBT49QD9APVZcdxcRKQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQEewABACwAAAAAEAAQAAAI/wABCPSgAgeRKWDa4DFUKVQsAAEIQPiwQoTFiyIsiZIlsEAEECxEFMF4SMSoWQAEGJAQQkQOI1Qs5kF0iRQtAAMOTBDRQscREWHc6EkkolQtnAgoiHCxA0kVMW/2KBJhypbABBVEvBCRxMoYOHwWiTh1C6cCCyNg8FByhUycPowwocIlcMEFETF6LMFSRo6fRplS5RLIAAMJGT6YZDEz548jTap0CWyQocSMH020nKED6NGmVbsEAnBgggYQJ1vQ1AkEiRMrXqI1nGAQ5AmXNHYERerUqlcwgRsU1BABpYsaEYMkeXLlS9hoDihsCIniZY0IQpM+vfo1bMCDDiluDA2R8oXNnUKUQMECRiwgADs=">
+
+  
+  <title>Doc2</title>
+  <style>
+  *:not(hr), *::after, *::before {box-sizing: border-box;margin:0;padding:0;border:0}ul {list-style-type: none}
+#i{padding: 33px 0;background: linear-gradient(rgba(0,0,0,0.9), blue); 
+text-align: center;
+}
+/*this.offsetLeft-b.style.borderLeftWidth*/
+  </style>  
+</head>
+<body text=#ded bgcolor=navy>
+<div id="d1" style="margin-top: 33px;width:23px;aspect-ratio:1; background: yellow;border:5px solid white;"></div>
+<center>
+<button id="b" style="
+
+p0osition: fixed;
+t0op:0;l0eft:50%;
+
+t0ransform: translate(-50%, 0%);
+t0ransform: translateX(tx)
+background: #23282c;
+background-image: url(img/cipher02.png);
+background-position: left top;
+b0ackground-size: auto;
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: local;
+
+
+
+">
+<svg id="g" width="700" height="605" viewBox="0 0 700 605" fill="none"
+onclick="
+if(r) {r=false; return 0;}
+let xx=event.clientX-b.offsetLeft;
+let yy=event.clientY-b.offsetTop;
+let hh=35;
+let ww=24;
+if (yy>fu1&&yy<fu2) // попадание в фарватер
+	{
+	yrr.push({x:fx,y:fu1,w:xx-fx,h:fu2-fu1,
+	stroke:'red',opacity:'0.2',fill:'lime',a:' ',});
+	fx=xx;
+	fu1=fu1; // каждый щелчек задает новый фарватер
+	fu2=fu2;		
+	}
+	else
+	{
+	yrr.push({x:xx,y:yy,w:ww,h:hh,
+	stroke:'red',opacity:'0.2',fill:'lime',a:' ',});
+	fx=xx+ww;
+	fu1=yy; // каждый щелчек задает новый фарватер
+	fu2=yy+hh;	
+	
+	}
+
+
+
+
+let w=yrr.push()-1;
+q=w;// курсор//
+ben=true;
+//alert(q);
+g.innerHTML+=`<rect id=ux${w} x=${yrr[w].x} y=${yrr[w].y} width=${yrr[w].w} height=${yrr[w].h} opacity=.2 fill=lime stroke=red onclick=fn(this,this.getAttribute('fill'),${w})></rect>`;
+//<rect class="x" x="0" y="0" width="700" height="415" fill="#ded"></rect>
+
+"
+	
+>
+<style type="text/css">
+.rect1, .polygon1 {stroke: blue;}
+.txt1 {font-family: Arial; font-size: 12px; line-height: 0; fill:white;}
+textPath {font-family: sans-serif; font-size: 16px;}
+</style>
+</svg>
+</button>
+
+
+<div id=i>
+<button id="btn" style="padding: 4px;border-radius: 4px;font-size: 16px;">do group</button>
+</div>
+<textarea id="ta1" rows="2" cols="90" style="d0isplay:none;color: white; background: #1a0e5a;">
+
+</textarea>
+<script>
+let fu1=0, fu2=0, fx=0;
+let q=0;// курсор квадратов
+let bb=[];// все группв букв
+let r=false;
+let ben=true;
+//let ux;
+let yrr=[
+
+
+];
+
+
+//function fn(x){x.setAttribute('fill',['lime','none'][1^['lime','none'].indexOf(x.getAttribute('fill'))])}
+//let c=['lime','none'];
+//let c=['none','lime'];
+function fn(x,y,z){
+ben=true;
+if(y=='lime')
+{x.setAttribute('fill','red');x.setAttribute('opacity','.5');yrr[z]['fill']='red'}
+if(y=='red')//else
+{x.setAttribute('fill','lime');x.setAttribute('opacity','.2');yrr[z]['fill']='lime'}
+if(y=='black')//else
+{x.setAttribute('fill','lime');x.setAttribute('opacity','.2');yrr[z]['fill']='lime'}
+r=true;
+q=z;//
+//x.setAttribute('fill','red');
+/*x.setAttribute('fill',c[+('lime'===x.getAttribute('fill'))]); 
+alert(x.getAttribute('fill'));
+//event.stopPropagation();
+console.log('red'^'red'^'lime');
+console.log('lime'^'red'^'lime');
+*/
+}
+/*function fn(x){
+x.setAttribute('fill',['lime','none'][1^(+('lime'===x.getAttribute('fill')))]);
+x.stopPropagation();
+}
+*/
+btn.addEventListener('click',()=>{
+let m=[];
+let a=[...document.querySelectorAll('[id^="ux"]')];
+//let [a]=document.querySelectorAll('[id^="ux"]');
+a.forEach((x,i)=>{if(x.getAttribute('fill')=='red')
+	{x.setAttribute('fill','black');x.setAttribute('opacity','.5');m.push(i)}});
+	
+const mySet = new Set(m);	
+// перед тем как добавить почистим большой массив от массивов полностью входящих в m
+// хм... да ну неможет же быть.. чтобы не было пересечний множеств, их сравниений?
+// заебисто будет каждый элемент множества поштучно обработать
+//bb.filter(i=>{let n=new Set(i);});
+bb=bb.filter(i=>!i.every(j=>m.includes(j)));// подмассивы удаляю
+m.forEach(x=>{bb=bb.map(i=>i.filter(k=>k!==x))});// дубли элементов удаляю
+bb=bb.filter(i=>i!==[]);//пустые массивы удалить
+bb.push(m);
+bb.sort((a,b)=>b.length-a.length);
+
+let alf='АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя';
+bb.forEach((x,i)=>{x.forEach(j=>{yrr[j]['a']=alf[i]})});
+let aa=yrr.map(i=>i['a']).join('');
+console.log(bb);//console.log(aa);//
+ta1.value=aa;
+});
+
+
+ //********************* выбранная точка перемещается курсорными клавишами
+ document.addEventListener('keydown', (e) => {// ←↑↓→
+    //if(ux)
+	if(!(yrr[q])) return 0;
+	//alert(q);
+	switch(e.keyCode) {
+		case 40: {//↓
+		 if(ben)
+		  {
+		  yrr[q]['y']=yrr[q]['y']+1;
+		  fu1++;
+		  fu2++;
+		  }
+		  else
+		  {
+		  yrr[q]['h']=yrr[q]['h']+1;
+		  fu2++;
+		  }
+		  //ux.setAttribute('y',yrr[0]['y']);
+		  //alert(ux.getAttribute('y'));
+		  break;
+		}
+		case 38: {//↑
+			if(ben)
+		  {	
+		  yrr[q]['y']=yrr[q]['y']-1;
+		  fu1--;
+		  fu2--;
+		  }
+		  else
+		  {
+		  yrr[q]['h']=yrr[q]['h']-1;
+		  fu2--;
+		  }
+		  break;
+		}	  
+		case 39: {//→
+			if(ben)
+			{
+		  yrr[q]['x']=yrr[q]['x']+1;
+		  fx++;
+		  }
+		  else
+		  {
+		  yrr[q]['w']=yrr[q]['w']+1;
+		  fx++;
+		  }
+		  break;
+		}
+		case 37: {//←
+			if(ben)
+			{
+		  yrr[q]['x']=yrr[q]['x']-1;
+		  fx--;
+		  }
+		  else
+		  {
+		  yrr[q]['w']=yrr[q]['w']-1;
+		  fx--;
+		  }
+		  break;
+		}
+		case 96: { // numpad0
+			ben=!ben;
+			yrr[q]['stroke']=['purple','red'][+ben];
+			break;
+		}
+		default: break;
+	  }
+	  let a=[...document.querySelectorAll('[id^="ux"]')];
+	  a[q].setAttribute('x',yrr[q]['x']);
+	  a[q].setAttribute('y',yrr[q]['y']);
+	  a[q].setAttribute('width',yrr[q]['w']);
+	  a[q].setAttribute('height',yrr[q]['h']);
+	  a[q].setAttribute('opacity',yrr[q]['opacity']);	  
+	  a[q].setAttribute('fill',yrr[q]['fill']);	  
+	  a[q].setAttribute('stroke',yrr[q]['stroke']);
+	  
+	  }
+
+	);
+//**************************
+
+/*
+ЙАГЕЗАГЛЁДС МЗАГЖАЙВ ДВБ КВЕСАББВЗАГЛАБПА ИЗЁДЁИ ОАКВЕАБЕЛДЖМВЕБГБЁВД ЖВ ГЖДВБ БВИЕАГБА СЕГЛЁБГБЁВДГЗ ГДВРГЗЁАЖГДЙДВБЁДИЕАГЖАБПА ЗВГЙВДБЕГККЁИКЗВТЖ ЛЁВЗГБВМЖ ТЁЗЗОА ЖАДББВБПА ЖАИВДЙГЕУ БЕГДЖМВЕБЗЁДА ЁД ЖБ МАБАЕЖОНЕС ТПАЕА ЙНАБВБАИПДЁИГЗ КАГБНЕАЖ БЕГДЖМВЕБГБЁВД ИГД ОА ИГЕЕЁАЙ ВНБАФИЗНЖЁЛАЗУЁД ЙЁЖРАРОАЕАЙ КВЕР 
+
+
+*/
+</script>   
+</body>
+</html>
