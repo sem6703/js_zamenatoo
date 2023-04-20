@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="data:image/gif;base64,R0lGODlhEAAQAPcAAD1NjT1MjT1LjD5KikFKh0JLhUFMi0hLiVFIg2JJg2tVkap/v86W2LRyvrB5vKRntD1JijxIiT9KiT9Kh0BIhkVKiDxJiERHhY88W4A8W5BMecuLv6Bps6Jnv6JgsjxLjD5JiD9JiT1KhTZKjEBJjkdGh05Di4w6Sps5M6M9PK1DRqc/SpVLaKtyrz1MjjxJiT1HiUFHgz9JhT5IhEJLfjxGi21BYXYvNnc0M4EzNZEuNoVBabuFxD5NkT9KjD9IiT1HijxHiEpGgohFX3M+XmxPbpJBTL1ORrhDQ5s/Oo9efsOMyz9OkUBMkDtKkDxJkz1Iij1LfWRAYY48SmI4Slk5R38zPqA+OKM7P5w5NX8xQ7t6t0BOjTtMjVdIeGVEX2ZQamk9Y3dYf315oomDp490i3g3SH0uOo82Nos1QJ5bj0BNkT1OkkdJh5A9UJkqLl8dKE0ZJkggMk8wSVY4V109V1otP1snNWcpMLJvh8GCtT9NlTpPkERMh308WX4gLFw2THFVcZVqg4lVZ4FLXnxGWXtLXXBIW1IqO5ZUbptXiD1PkjtNjz5LkExCem8+WoJxhWUrP3McK2QlLmggKHgkKHEsM1wlOVw2T4dGaqNdnD5PkjtOkURMjkJJjHtym5dqcJQvLIFASaGouIVncYQxP3g1P2gxPWU/UZdilKRrqUFQlD9MkEBLjztIjExUjplYZspLOa5ZV4xjcZBHRI8xO2MqNXI0Q2YrR7R7u9Ca3EJQlkFNk0JOkUFLjTxJkF1Ad7dFRstfTMJtWMtaPsBYUkwvOItMUJxSet+h7cWPzkFQlT9NkUFNlDpEjFxFeqSUuLCPncRgVLtcVFEsK51ZaMN2sLRyw7F3vEFQlj9NkkBOkkBMkT1OlD1LkT5DhT1Hh0ZEgFs9c2c/Zb+QseOu4rp8y8OG2bt/yUFRlkBPlD9Okj1NjkFMikZJi0lLjEpKikxJi09PhLGZztqz5tOS4bt2yK1wtQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQEewABACwAAAAAEAAQAAAI/wABBPjgogcTLmv2LNq0ateybOkCQIjwwkcTAGz4MOLEihczbeoERAAB4oeTLm36NOrUqheTbesGSAgBA8gTL278OPLkylcrbtoITBAR4wKUL2/+PPr06lezbuwKUBghI0gUMHAAQQIFC5gzb+0MVCAxQ4iUMHECRQoVK9izb+4OWChBY8gUMXIESRIlSxg0cO8QXDBRgwiVMXMGTRo1a1i0cPASYDhho0gVMnQIUSJFi5g0cfEUZEBxw4iVMnUKVSpVq9i0cfIWaEiB48gVM3YMWTJlyxg1cvMYbFCRAwmWM3cOXTp161i1cvQacFihI0kWNHgQYUKFC5k1c/UcdCRgsUOJljR5EmVKlSvZtXP2HnhowWPJFjV6FGlSpUsZNnT3BAQAOw==">
+
+
+  <title>Замена-210en</title>
+  <style>
+/*
+* Prefixed by https://autoprefixer.github.io/ru/
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+*:not(hr), *::after, *::before {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	margin:0;
+	padding:0;
+	border:0
+	}
+
+ul {list-style-type: none}
+ 
+body{
+	font-family: sans-serif;
+	background-color:#ded
+	} 
+#i{
+	padding: 33px 0;
+	background: -webkit-gradient(linear, left top, left bottom, from(grey), to(#ded));
+	background: -o-linear-gradient(grey, #ded);
+	background: linear-gradient(grey, #ded); 
+	text-align: center;
+	}
+
+
+.ira{
+	position: absolute;
+	cursor: move; 
+	color: white;
+	display: -ms-grid;
+	display: grid; 
+	place-items:center; 
+	-webkit-user-select: none; 
+	-moz-user-select: none; 
+	-ms-user-select: none; 
+	user-select: none;
+	font-size:16px;
+	width:25px; 
+	height: 20px;
+    z-index: 9;
+	background: navy;
+	}
+.iba{
+	margin: 0 2px;
+	display: -ms-grid;
+	display: grid; 
+	place-items: center; 
+	-webkit-user-select: none; 
+	-moz-user-select: none; 
+	-ms-user-select: none; 	
+	width: 25px;	
+	font-size: 16px;
+	color: white;
+	background: navy;
+	cursor: move;
+	user-select: none;
+    }	
+
+
+.km{margin:2px;
+	display: -ms-grid;
+	display: grid; place-items: center;
+	width:43px;  
+	border:4px solid blue;
+	position: fixed; bottom: 0px;
+	background: white;
+	font-family : monospace;
+	font-size:24px;
+	-o-text-overflow: clip;
+	   text-overflow: clip;
+	color:black;
+	letter-spacing:1px;
+	z-index:6;
+	}
+
+
+.a:before{
+	content: '';
+	display:  block;
+	position: absolute;
+	width: 5px; 
+	height: 20px;
+	top: -27px;
+	left: 15px;
+	background: blue;
+	}
+
+
+
+.b:after{
+	content: '';
+	display: block;
+	position: absolute;
+	width: 35px; 
+	height: 5px;
+	top: -12px;
+	left: 2px;
+	background: blue;
+	}
+legend{
+	font-family: monospace;
+	font-size: 24px;
+	text-align: center;
+	color: blue;
+	}
+
+
+#m1,#m2,#m3{
+	margin: auto; 
+	color: white; 
+	text-align: left;
+	border: 5px solid white;
+	font-family : monospace;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
+	padding: 20px 4%;
+	font-size: 22px;
+	letter-spacing: 8px;
+	line-height: 37px;
+	max-width: 800px;
+	}
+#m1{
+	position: absolute; 
+	top: 0; 
+	left: 0;
+	border: 5px solid #ffffff00;
+	color: #00000080;
+	background: white;
+	}
+#m2{
+	position: absolute; 
+	top: 0; 
+	left: 0;
+	background: transparent;
+	padding-top: 5px;
+	color: purple;
+	font-weight: 700;
+	}
+#m3{
+	visibility:hidden;
+	}
+
+article{
+	margin: auto;
+	position: relative;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
+	}
+
+#ty{
+	padding-top: 100px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center; 
+	-webkit-box-align: start; 
+	-ms-flex-align: start; 
+	align-items: flex-start;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap; 
+	visibility: hidden;
+	position: fixed; 
+	bottom: 10px;
+	width: 100%;
+	height: 444px;
+	background: fuchsia;
+	z-index: 5;
+	}
+#fa{
+	width: 100%;
+	height: 444px;
+	background: transparent;
+	position: fixed; 
+	bottom: 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex; 
+	-webkit-box-align: start;
+	-ms-flex-align: start; 
+	align-items: flex-start;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	z-index:6;
+	}
+
+button{
+	margin: 1px;
+	padding: 8px 16px; 
+	background: #efd;
+	border: 2px solid blue; 
+	border-radius: 5px;
+	font-size: 21px;
+	cursor:pointer;
+	-webkit-transition: all 1s;
+	-o-transition: all 1s;
+	transition: all 1s
+	}
+button:hover{background: #fff;}
+p{
+	height: 444px; 
+	visibility: hidden;
+	}
+nav{
+	position: fixed;
+	top: 20px;
+	left: 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex; 
+	-webkit-box-orient: vertical; 
+	-webkit-box-direction: normal; 
+	-ms-flex-direction: column; 
+	flex-direction: column;
+	}
+#cop{
+	width: calc(100% - 6px);
+	height: 222px;
+	background: #ded;
+	position: absolute; 
+	left: -9999px;
+	}
+  </style>  
+</head>
+<body>
+	<nav>
+		<button id="btn1" onclick="
+			ir.forEach((x,i)=>{
+				x.style.top=ib[i].offsetTop+'px';
+				x.style.left=ib[i].offsetLeft+'px';});	
+			conny();// вывод деши
+		">reset</button>
+		<button onclick="
+			cop.value=m2.innerText;
+			cop.select();
+			document.execCommand('copy');
+			window.getSelection()?.removeAllRanges();
+		">copy</button>
+		<button onclick="
+			navigator.clipboard.readText()
+				.then(text => {
+				text=[...text].map(i=>i.toUpperCase()).join('');
+				cop.value=text;
+				main(cop.value);
+				btn1.onclick();
+				})
+				.catch(err => {
+				console.log('Oblomingo flyed pass', err);
+				});
+				
+		">paste</button>		
+	</nav>
+	<textarea id="cop">для копирования</textarea>
+
+	<div id=i>
+		<article>
+			<div id="m3"></div>
+			<div id="m1"></div>
+			<div id="m2"></div>
+		</article>
+		<div id="ty"></div>
+	</div>
+	<form id="fa"></form>
+	<p></p>	
+
+<script>
+'use strict';
+var ir,ib;
+let ws;// коорды размеры башен
+/*
+      //  А  Б  В  Г  Д  Е  Ё  Ж  З  И  Й  К  Л  М  Н  О  П  Р 
+const fq=[21,7 ,14,4 ,9 ,34,0 ,4 ,12,21,11,11,12,16,35,38,8 ,12,
+		//  С  Т  У  Ф  Х  Ц  Ч  Ш  Щ  Ъ  Ы  Ь  Э  Ю  Я  _
+			18,19,8 ,2 ,5 ,1 ,4 ,3 ,2 ,0 ,13,3 ,0 ,0 ,11,45];
+	*/		
+//A82B15C28D43E127F22G20H61I70J2K8L40M24N68O75P19Q1R60S63T91U28V10W24X2Y20Z1			
+		// A   B   C   D   E   F   G   H   I   J   K   L   M
+const fq=[ 82, 15, 28, 43,127, 22, 20, 61, 70,  2,  8, 40, 24, 
+
+		//  N   O   P   Q   R   S   T   U   V   W   X   Y   Z
+			68, 75, 19,  1, 60, 63, 91, 28, 10, 24,  2, 20,  1];	
+
+		
+const ef='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+/*
+const af=[...'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'];
+const qf=[...'ОНЕАИТСМВЫЛЗРЙКЯДПУБХГЖЧЬШФЩЦЮЭЪЁ'];
+*/
+const afru=[...'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'];
+
+const af=[...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
+const qf=[...'ETAOINSHRDLCUMWFGYPBVKJXQZ'];
+let f;
+let o; // обьект
+let p;// множество для алфавита шифротекста
+let hu,hi;
+let t=[];// abcd
+let s1;
+
+ty.innerHTML=qf.map((x,i)=>
+	{return '<div class="iba" style="height:'+
+	(fq[af.indexOf(x)]+21)+
+	'px;">'+x+'</div>'}).join('');
+
+
+
+
+
+function dragElement(ass) {//Make the DIV element draggagle:
+	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+	ass.onmousedown = dragMouseDown;
+
+	function dragMouseDown(e) {
+		e = e || window.event;
+		// get the mouse cursor position at startup:
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		document.onmouseup = closeDragElement;
+		// call a function whenever the cursor moves:
+		document.onmousemove = elementDrag;
+		}
+
+	function elementDrag(e) {
+		e = e || window.event;
+		// calculate the new cursor position:
+		pos1 = pos3 - e.clientX;
+		pos2 = pos4 - e.clientY;
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		// set the element's new position:
+		ass.style.top = (ass.offsetTop - pos2) + "px";
+		ass.style.left = (ass.offsetLeft - pos1) + "px";
+		}
+
+	function closeDragElement() {
+		/* stop moving when mouse button is released:*/
+		document.onmouseup = null;
+		document.onmousemove = null;
+		[...ir].forEach((x,i)=>{localStorage.setItem(`myXCat210${i}`,x.offsetLeft)});
+		[...ir].forEach((x,i)=>{localStorage.setItem(`myYCat210${i}`,x.offsetTop)});
+		conny();// вывод деши
+		}
+}
+
+
+/*
+const ss='И ФЭПЭ ШИЩРЮСЩЬД ЦПСЮЖЮ. ПЦСДЧЩЭ, ЖБЫРСХЭ, ЖЮЖ АЭСГХЭ ЮОБЦЬГЮГХ. Щ ЬЮБЮК, ЖЦГЦБХК ЖЮЛЮСЬН Ь ЛЭТСЩ ЦМЭФД ЦПХЖФЦИЭФФХТ, ВСХС ФЮИЬГБЭМЫ ЦПСЮЖЮТ, ПЫШГЦ ВЦШФНГХК И ФЭПЦ ЖЦБЮПСД. Ю ШИЦБ ФЮВЦТЩФЮС ВЦИЭБУФЦЬГД ВСЮФЭГХ, ЫИЩШЭФФЫЯ Ь ЖЦЬТЩМЭЬЖЦК ИХЬЦГХ. ЦЬГБЦИЖЩ ВХСДФЦК ГБЮИХ, ВЭБЭЬХВЮФФЦК ЬЭШХТЩ ЧЮБЩЖЮТЩ ЦШЫИЮФМЩЖЦИ, ПХСЩ ВЦУЦАЩ ФЮ ЛЭСЭФХК ЮБУЩВЭСЮР, Ю ШЦАШЭИЮН ИЦШЮ И ПЦМЖЭ Ы ЬЮБЮН, ЬСЦИФЦ ЖБЫРСЦЭ ЦЛЭБЦ И ЦГИЭЬФХУ ПЭБЭРЮУ, ЬИЭГЩСЦЬД РЦСЫПЦК ЬЩФЭИЦК. ТЮСДМЩЖ СЯПЩС ИЬЭТЫ ФЮ ЬИЭГЭ ШЮИЮГД ЩТЭФЮ Щ ФЮЛИЮФЩН. ЦФЩ ИЬЭРШЮ ВБЩШЫТХИЮСЩЬД ЬБЮЛЫ. ЛЭБЖЮСДЕЭ ИЦШХ И ПЦМЖЭ ЦФ ФЮЛИЮС ЦЛЭБЦТ ЬЩФЭРЦ ЬИЭГЮ, Ю ВНГФЮ ГБЮИХ ЮБУЩВЭСЮРЦТ ФЭЩЛИЭШЮФФХУ СЭЬЦИ.';
+*/
+const ss='НЕГИ ВЛА БНВ ЖЕКОВГБ ФБДУАЕЙА ЁЕА ЕФЙЛДБС ВГ ЖЕКОВГБ ЁЖЁЗАИК НГЕ БАП ТБГПМАЗСА ДБ ВЛА ПГЕМЗ ГН РМГЖТЖЛЁДБ ВАЖЛБГМГСДАЙ! "ЁБ ДБУАЙВИАБВ ДБ ТБГПМАЗСА ЁМПЁКЙ ОЁКЙ ВЛА РАЙВ ДБВАЕАЙВ."  РАБХЁИДБ Н.  МДИДВАЗ АЗДВДГБ ГН БНВ  "ЖЕКОВГБ ЁЖЁЗАИК - ДБУАЙВИАБВ ДБ ТБГПМАЗСА"  (ЧШЦ ДБ ВГВЁМ),  ПЛДЖЛ ПАЕА ГРВЁДБАЗ РК ВЛА НДЕЙВ ИАИРАЕЙ ГН ВЛА ОЕДУЁВА ЖЕКОВГБ ЁЖЁЗАИК ОЕГХАЖВ. ЗДЙЖГЕЗ ЖЕКОВГБ - ЖИЗ: !ЕАЗЕГГИ';
+
+main(ss);
+
+
+function main(ss){
+fa.innerHTML=qf.map((x,i)=>
+	{return '<div class="ira" style="height:'+
+	(fq[af.indexOf(x)]+21)+
+	'px;">'+x+'</div>'}).join('');
+
+//p=new Set([...ss].filter(x=>af.indexOf(x)>-1));
+p=new Set([...ss].filter(x=>afru.includes(x)));
+
+const d=Array.from(p).join('');//горд
+
+
+
+const q=[...ss].filter(x=>afru.includes(x))//afru.indexOf(x)>-1)// частота
+	.reduce((a,x)=>{a[x]=~~a[x]+1;return a},{})
+const c=[...afru].filter(i=>i in q).sort((a,b)=>q[b]-q[a]).map(i=>q[i]-1);//21,14,13
+
+const qa=[...afru].filter(i=>i in q).sort((a,b)=>q[b]-q[a]).join('');//отеиc
+s1=[...ss].map(x=>(qa.includes(x))?ef[qa.indexOf(x)]:x).join('');
+//alert(qa); qa.indexOf(x)>-1
+//********************************************
+
+const booa=[...ef].map(x=>{/// однобукыенные слова
+	let e=new RegExp('\\b'+x+'\\b','g');
+	return e.test(s1);
+});
+
+const boob=[...ef].map(x=>{/// удвойенные буквы
+	let e=new RegExp(x+x);
+	return e.test(s1);
+});
+
+let sot=new Set();// ТИПА ключ шифрования замены
+let key=[];
+[...ss].forEach(x=>{
+	if((af.indexOf(x)>-1)&&!sot.has(x))key.push(x); 
+	sot.add(x)
+});
+key=key.concat(af.filter(x=>!sot.has(x)));
+
+
+//***************************************
+t=[];
+for (let i=0; i<d.length; i++){t.push(ef[i])}
+t=t.join('');
+	
+	
+	
+let iq4=[...t].map((x,i)=>//аддитивное обьединение двух колод - небоскребы и буквы
+'<fieldset class="km'+
+`${(booa[i])?' a':''}`+ //вертикальный штрих
+`${(boob[i])?' b':''}`+ // горизонтальн штрих
+	'" style="left:'+(i*46)+'px">'+x+'</fieldset>').join('');	
+fa.innerHTML+=iq4;
+ir=[...document.querySelectorAll('.ira')];// подвижные элементы
+ib=[...document.querySelectorAll('.iba')];// неподвижные элементы         
+ir.forEach((x,i)=>{x.style.left = (localStorage.getItem(`myXCat210${i}`)||ib[i].offsetLeft)+'px';});
+ir.forEach((x,i)=>{x.style.top = (localStorage.getItem(`myYCat210${i}`)||1)+'px';});
+af.forEach((x,i)=>{dragElement(ir[i])});
+//*****************************
+
+hu=document.querySelectorAll('.km');
+
+hi=c.map((x,i)=>`${43+c[i]*400/c[0]|0}px`);
+[...hu].forEach((x,i)=>{x.style.height=hi[i]});// высота небоскребов
+const sit=()=>{
+	ws=[...hu].map(x=>{return {// коорды посадочных мест
+		x1:x.offsetLeft,
+		x2:x.offsetLeft+x.offsetWidth,
+		y1:x.offsetTop,
+		y2:x.offsetTop+x.offsetHeight
+	}});
+}
+
+sit();// пересчет коорд посадок
+conny();// вывод деши
+
+window.onresize=()=>{sit()}
+//*******************
+}// end main
+
+function conny(){// вывод деши
+	o=[...t].reduce((a,x)=>{a[x]='.'; return a},{});
+	[...ir].forEach((x,i)=>{
+		let v=x.offsetLeft+ 12;
+		let w=x.getBoundingClientRect().top+20;
+		let b=x.innerText;
+		for(let j=0; j<t.length;j++){//в какую башню попал
+			f=w>ws[j].y1&&w<ws[j].y2;
+			if(f&&(v>ws[j].x1)&&(v<ws[j].x2)){o[t[j]]=b}	
+		}
+	});
+	m1.innerHTML=[...s1].map(x=>x).join('');//DAS
+	m2.innerHTML=[...s1].map(x=>(x in o)?o[x]:x).join('');
+	m3.innerHTML=m2.innerHTML;
+}
+</script>   
+</body>
+</html>
