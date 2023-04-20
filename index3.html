@@ -15,11 +15,39 @@
 #i{padding: 33px 0;background: linear-gradient(rgba(0,0,0,0.9), blue); 
 text-align: center;
 }
+
+.ki{margin:1px;width:45px;height:60px;
+display: inline-block;
+background: url(img/cipher02.png);
+background-position: left 0px top -490px;
+background-size: auto;
+b0ackground-size: cover;
+background-repeat: no-repeat;
+background-attachment: local;
+border:4px solid white; border-radius:4px;
+}
+
+.uni{display: none;}
+
+.ki:has(.uni:checked){border-color: lime;}
+
+#b23{padding:10px;cursor:pointer;border-radius:12px;}
+
 /*this.offsetLeft-b.style.borderLeftWidth*/
   </style>  
 </head>
 <body text=#ded bgcolor=navy>
-<div id="d1" style="margin-top: 33px;width:23px;aspect-ratio:1; background: yellow;border:5px solid white;"></div>
+
+<div id="kv" style="position:fixed;top:100px;left:6px;
+background-color: black;width:223px; height:670px;a0spect-ratio:1;
+padding:1px;
+">
+<button id="b23" style="visibility:hidden;">uniou</button><br>
+<button class="ki" style=""></button>
+
+</div>
+
+<div id="d1" style="margin-top: 33px;width:23px;aspect-ratio:1; background: yellow;border:5px solid white;visibility:hidden;"></div>
 <center>
 <button id="b" style="
 
@@ -48,6 +76,9 @@ let hh=35;
 let ww=24;
 if (yy>fu1&&yy<fu2) // попадание в фарватер
 	{
+	if((xx-fx)>10){xx=fx+20.7} // ускорение разметки моноширинных элементов- при клике в конец строки, будут добавляться квадраты шириной 20,7
+	//console.log(xx-fx);
+	//alert(yy+ ' '+fu1+' '+fu2);
 	yrr.push({x:fx,y:fu1,w:xx-fx,h:fu2-fu1,
 	stroke:'red',opacity:'0.2',fill:'lime',a:' ',});
 	fx=xx;
@@ -93,6 +124,8 @@ textPath {font-family: sans-serif; font-size: 16px;}
 
 </textarea>
 <script>
+const kax=1.6;
+const kay=1.6;
 let fu1=0, fu2=0, fx=0;
 let q=0;// курсор квадратов
 let bb=[];// все группв букв
@@ -118,23 +151,11 @@ if(y=='black')//else
 {x.setAttribute('fill','lime');x.setAttribute('opacity','.2');yrr[z]['fill']='lime'}
 r=true;
 q=z;//
-//x.setAttribute('fill','red');
-/*x.setAttribute('fill',c[+('lime'===x.getAttribute('fill'))]); 
-alert(x.getAttribute('fill'));
-//event.stopPropagation();
-console.log('red'^'red'^'lime');
-console.log('lime'^'red'^'lime');
-*/
 }
-/*function fn(x){
-x.setAttribute('fill',['lime','none'][1^(+('lime'===x.getAttribute('fill')))]);
-x.stopPropagation();
-}
-*/
+
 btn.addEventListener('click',()=>{
 let m=[];
 let a=[...document.querySelectorAll('[id^="ux"]')];
-//let [a]=document.querySelectorAll('[id^="ux"]');
 a.forEach((x,i)=>{if(x.getAttribute('fill')=='red')
 	{x.setAttribute('fill','black');x.setAttribute('opacity','.5');m.push(i)}});
 	
@@ -145,8 +166,9 @@ const mySet = new Set(m);
 //bb.filter(i=>{let n=new Set(i);});
 bb=bb.filter(i=>!i.every(j=>m.includes(j)));// подмассивы удаляю
 m.forEach(x=>{bb=bb.map(i=>i.filter(k=>k!==x))});// дубли элементов удаляю
-bb=bb.filter(i=>i!==[]);//пустые массивы удалить
-bb.push(m);
+bb=bb.filter(i=>i.length);//пустые массивы удалить
+if (m.length) bb.push(m);
+
 bb.sort((a,b)=>b.length-a.length);
 
 let alf='АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя';
@@ -154,7 +176,40 @@ bb.forEach((x,i)=>{x.forEach(j=>{yrr[j]['a']=alf[i]})});
 let aa=yrr.map(i=>i['a']).join('');
 console.log(bb);//console.log(aa);//
 ta1.value=aa;
+/*
+
+*/
+hb=bb.map(i=>`
+<label class="ki" style="background-position: left -${yrr[i[0]]['x']*kax}px top -${yrr[i[0]]['y']*kay}px">
+<input class="uni" type="checkbox">
+</label>`);
+kv.innerHTML='<button id="b23"'+((bb.length>1)?'':' style="visibility:hidden;"')+'>uniou</button><br>'+hb.join('');
+b23.onclick=si;
 });
+
+function si(){
+	let kiss=[...document.querySelectorAll('.uni')];
+	let ra=[];
+	kiss.forEach((x,i)=>{if(x.checked){
+	//alert(`обьединяши [${ra}] и [${bb[i]}]`);
+	ra=ra.concat(bb[i]);bb[i]=[];}});
+	bb=bb.filter(i=>i.length);//пустые массивы удалить
+	//alert(ra);
+	if (ra.length) bb.push(ra);
+	bb.sort((a,b)=>b.length-a.length);	
+	hb=bb.map(i=>`
+	<label class="ki" style="background-position: left -${yrr[i[0]]['x']*kax}px top -${yrr[i[0]]['y']*kay}px">
+	<input class="uni" type="checkbox">
+	</label>`);
+	kv.innerHTML='<button id="b23"'+((bb.length>1)?'':' style="visibility:hidden;"')+'>uniou</button><br>'+hb.join('');	
+	b23.onclick=si;
+	console.log(bb);
+	let alf='АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя';
+	bb.forEach((x,i)=>{x.forEach(j=>{yrr[j]['a']=alf[i]})});
+	let aa=yrr.map(i=>i['a']).join('');
+	//console.log(bb);//console.log(aa);//
+	ta1.value=aa;	
+	}
 
 
  //********************* выбранная точка перемещается курсорными клавишами
