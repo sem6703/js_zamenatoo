@@ -326,7 +326,7 @@ background-attachment: local;
 onclick="
 if(r) {r=false; return 0;}
 let xx=event.clientX-bph.offsetLeft;
-let yy=event.clientY-bph.offsetTop+window.pageYOffset;//
+let yy=event.clientY-bph.offsetTop+window.pageYOffset;//window.getComputedStyle(bhp).left
 let hh=35;
 let ww=24;
 if (yy>fu1&&yy<fu2&&xx>fx) // попадание в фарватер  
