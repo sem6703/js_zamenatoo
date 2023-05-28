@@ -249,6 +249,7 @@ text-align: center;
 
 .ki{
 	margin:1px;width:45px;height:60px;
+	position: relative;
 	display: inline-block;
 	background: url(img/us.png);
 	background-position: left 0px top -328px;
@@ -258,6 +259,25 @@ text-align: center;
 	background-attachment: local;
 	border:4px solid white; border-radius:4px;
 	}
+.kolvo{
+	p0adding:2px;
+	position: absolute;
+	font-weight:900;
+	color: blue;
+	bottom:0; right:0;
+	w0idth:15px; a0spect-ratio:1;
+	background: none;/*white;*/
+	}	
+.meta{
+	padding:2px;
+	position: absolute;
+	bottom:0; left:0;
+	width:15px; aspect-ratio:1;
+	background: white;
+	}
+
+	
+	
 
 .uni{display: none;}
 
@@ -311,6 +331,20 @@ padding:1px;
 
 </div>
 
+<div id="barright" style="position:fixed;top:44px;right:118px;
+background-color: black;width:93px; height:670px;a0spect-ratio:1;
+padding:1px;
+">
+<button onclick="shz(this)"></button><br>
+<button onclick="shz(this)">*</button><br>
+<button onclick="shz(this)">a</button><br>
+<button onclick="shz(this)">b</button><br>
+<button onclick="shz(this)">c</button><br>
+<button onclick="shz(this)">f</button><br>
+<button onclick="shz(this)">d</button><br>
+<button onclick="shz(this)">e</button><br>
+</div>
+
 <div id="d1" style="margin-top: 33px;width:23px;aspect-ratio:1; background: yellow;border:5px solid white;display:none;v0isibility:hidden;"></div>
 <center>
 <button id="bph" style="
@@ -360,7 +394,7 @@ q=w;// курсор квадратов//
 ben=true;
 g.innerHTML+=`<rect id=ux${w} x=${(yrr[w].x).toFixed(1)} y=${yrr[w].y} width=${(yrr[w].w).toFixed(1)} height=${yrr[w].h} opacity=.2 fill=lime stroke=red onclick=fn(this,this.getAttribute('fill'),${w})></rect>`;
 ">
-<line id="line" x1="0" y1="1" x2="0" y2="500" stroke="teal" />
+<line id="line" x1="0" y1="1" x2="0" y2="2500" stroke="teal" />
 </svg>
 </button>
 <!--  opacity=.2 fill=lime stroke=red  -->
@@ -428,7 +462,7 @@ let yrr=[
 
 
 ];
-
+let bvb=[];// все группв букв + метка
 
 //function fn(x){x.setAttribute('fill',['lime','none'][1^['lime','none'].indexOf(x.getAttribute('fill'))])}
 //let c=['lime','none'];
@@ -447,46 +481,50 @@ function fn(x,y,z)
 	}
 
 btn10.addEventListener('click',()=>{
-let m=[];
-let a=[...document.querySelectorAll('[id^="ux"]')];
-a.forEach((x,i)=>{if(x.getAttribute('fill')=='red')
-	{x.setAttribute('fill','black');x.setAttribute('opacity','.5');m.push(i)}});
-	
-//const mySet = new Set(m);	
-// перед тем как добавить почистим большой массив от массивов полностью входящих в m
-// хм... да ну неможет же быть.. чтобы не было пересечний множеств, их сравниений?
-// заебисто будет каждый элемент множества поштучно обработать
-//bb.filter(i=>{let n=new Set(i);});
-bb=bb.filter(i=>!i.every(j=>m.includes(j)));// подмассивы удаляю
-m.forEach(x=>{bb=bb.map(i=>i.filter(k=>k!==x))});// дубли элементов удаляю
-bb=bb.filter(i=>i.length);//пустые массивы удалить
-if (m.length) bb.push(m);
+	let m=[];
+	/*let a7=[...document.querySelectorAll('[id^="ux"]')];
 
-bb.sort((a,b)=>b.length-a.length);
 
-let alf='АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя';
-bb.forEach((x,i)=>{x.forEach(j=>{yrr[j]['a']=alf[i]})});
-let aa=yrr.map(i=>i['a']).join('');
-console.log(bb);//console.log(aa);//
-ta1.value=aa;
-/*
+	*/
+	//********** bb перестраиваю в bvb
+	 m=[];
+	 let a7=[...document.querySelectorAll('[id^="ux"]')];
+	a7.forEach((x,i)=>{if(x.getAttribute('fill')=='red')
+		{
+		x.setAttribute('fill','black');
+		x.setAttribute('opacity','.5');
+		m.push(i)}}); 
+	bvb=bvb.filter(i=>!i.a.every(j=>m.includes(j)));// подмассивы удаляю
+	m.forEach(x=>{bvb=bvb.map(i=>
+	{return {a:i['a'].filter(k=>k!==x),s:i.s,}})
+	});// дубли элементов удаляю
+	//bvb=bvb.filter(i=>i['a'].length);//пустые массивы удалить
+	bvb=bvb.filter(i=>i.a.length);//пустые массивы удалить
+	if (m.length) bvb.push({a:m,s:''});
 
-*/
-let hb=bb.map((i,j)=>
-'<label class="ki" onmousedown="svet('+j+')" style="background-position: left -'+
-(yrr[i[0]]['x']*kax)+'px top -'+
-(yrr[i[0]]['y']*kay)+'px">\r\n'+
-'<input class="uni" type="checkbox">'+
-'</label>\r\n');
-kv.innerHTML='<button id="b23"'+((bb.length>1)?'':' style="visibility:hidden;"')+
-	'>union</button><br>'+hb.join('');
-b23.onclick=si;
+	bvb.sort((a,b)=>b.a.length-a.a.length);
+	//**************
+	let alf='АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя';
+	/*bb.forEach((x,i)=>{x.forEach(j=>{yrr[j]['a']=alf[i]})});
+	let aa=yrr.map(i=>i['a']).join('');
+	console.log(bb);
+	ta1.value=aa;*/
+	//***********
+	bvb.forEach((x,i)=>{x.a.forEach(j=>{yrr[j]['a']=alf[i]})});
+	//let aa=yrr.map(i=>i['a']).join('');
+	console.log(bvb);
+
+	//**********
+
+	bbgun();// построение кнопок групп
 });
 
 function svet(x){
 console.log('я вызвался '+bb[x]);
 let a=[...document.querySelectorAll('[id^="ux"]')];
-bb[x].forEach((y,i)=>{a[y].classList.toggle('ink1')});
+//bb[x].forEach((y,i)=>{a[y].classList.toggle('ink1')});
+//*******
+bvb[x].a.forEach((y,i)=>{a[y].classList.toggle('ink1')});
 }
 
 function si(){// обьединение множеств
@@ -500,23 +538,127 @@ a.forEach(i=>{i.classList.remove('ink1')});
 	bb=bb.filter(i=>i.length);//пустые массивы удалить
 	//alert(ra);
 	if (ra.length) bb.push(ra);
-	bb.sort((a,b)=>b.length-a.length);	
-	let hb=bb.map((i,j)=>
+	bb.sort((a,b)=>b.length-a.length);
+	//***********
+	 ra=[];	
+	kiss.forEach((x,i)=>{if(x.checked){
+	//alert(`обьединяши [${ra}] и [${bb[i]}]`);
+	//ra=ra.concat(bb[i]);bb[i]=[];}});	 
+	ra=ra.concat(bvb[i].a);bvb[i].a=[];}});
+	
+	bvb=bvb.filter(i=>i.a.length);//пустые массивы удалить
+	//alert(ra);
+	if (ra.length) bvb.push({a:ra,s:'!'});
+	bvb.sort((a,b)=>b.a.length-a.a.length);	
+	//***********
+bbgun();// построение кнопок групп	
+/*	let hb=bb.map((i,j)=>
 	'<label class="ki" onmousedown="svet('+j+')" style="background-position: left -'+
 	(yrr[i[0]]['x']*kax)+'px top -'+
 	(yrr[i[0]]['y']*kay)+'px">\r\n'+
 	'<input class="uni" type="checkbox">\r\n'+
 	'</label>');
 	kv.innerHTML='<button id="b23"'+((bb.length>1)?'':' style="visibility:hidden;"')+
-	'>union</button><br>'+hb.join('');	
-	b23.onclick=si;
+	'>union</button>'+
+	'<button id="b24"'+((bb.length>0)?'':' style="visibility:hidden;"')+
+	'>destroy</button>'+
+	'<br>'+hb.join('');	
+
+	b23.onclick=si;// обьединяем группы
+	b24.onclick=ci;// дестроим группу	
 	console.log(bb);
+	*/
 	let alf='АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя';
-	bb.forEach((x,i)=>{x.forEach(j=>{yrr[j]['a']=alf[i]})});
+	//bb.forEach((x,i)=>{x.forEach(j=>{yrr[j]['a']=alf[i]})});
+	//*********
+	bvb.forEach((x,i)=>{x.a.forEach(j=>{yrr[j]['a']=alf[i]})});	
+	//**********
 	let aa=yrr.map(i=>i['a']).join('');
 	//console.log(bb);//console.log(aa);//
 	ta1.value=aa;	
 	}
+	
+function ci(){ // дестрой группы
+// найдем одну группу под снос
+// 
+let a=[...document.querySelectorAll('label.ki')];
+let a2=a.map(i=>i.querySelector('.uni').checked).filter(i=>i);
+if(a2.length!==1) return;
+let a3=document.querySelector('label.ki:has(.uni:checked)');
+a=[...document.querySelectorAll('label.ki')];
+let del;
+a.forEach((x,i)=>{if(x.querySelector('.uni').checked){del=i; bb[i].forEach(y=>
+	{
+	let e=document.getElementById('ux'+y);
+	e.setAttribute('opacity','.2');
+	e.setAttribute('fill','lime');
+	e.setAttribute('stroke','red');
+	e.classList.remove('ink1');
+	}
+)}});
+bb=bb.filter((x,i)=>i!==del);
+//************
+ del;
+a.forEach((x,i)=>{if(x.querySelector('.uni').checked){del=i; bvb[i].a.forEach(y=>
+	{
+	let e=document.getElementById('ux'+y);
+	e.setAttribute('opacity','.2');
+	e.setAttribute('fill','lime');
+	e.setAttribute('stroke','red');
+	e.classList.remove('ink1');
+	}
+)}});
+bvb=bvb.filter((x,i)=>i!==del);
+
+//********
+//alert(bb+'   '+del);
+bbgun();// построение кнопок групп
+
+}	
+
+function bbgun(){// построение кнопок групп
+	console.log('bvb='+bvb);
+	/*console.log('bb='+bb);	
+	let hb=bb.map((i,j)=>
+	'<label class="ki" onmousedown="svet('+j+')" style="background-position: left -'+
+	(yrr[i[0]]['x']*kax)+'px top -'+
+	(yrr[i[0]]['y']*kay)+'px">\r\n'+
+	'<input class="uni" type="checkbox">\r\n'+
+	'<div class="meta">'+'</div>\r\n'+//	+(bvb[j]['s']??'')
+	'<div class="kolvo">'+bb[j].length+'</div>\r\n'+	
+	'</label>');
+	kv.innerHTML='<button id="b23"'+((bb.length>1)?'':' style="visibility:hidden;"')+
+	'>union</button>'+
+	'<button id="b24"'+((bb.length>0)?'':' style="visibility:hidden;"')+
+	'>destroy</button>'+
+	'<br>'+hb.join('');	
+
+	b23.onclick=si;// обьединяем группы
+	b24.onclick=ci;// дестроим группу	
+
+	console.log(bb);*/
+	//************
+	//let
+	let hb=bvb.map((i,j)=>
+	'<label class="ki" onmousedown="svet('+j+')" style="background-position: left -'+
+	(yrr[i.a[0]]['x']*kax)+'px top -'+
+	(yrr[i.a[0]]['y']*kay)+'px">\r\n'+
+	'<input class="uni" type="checkbox">\r\n'+
+	'<div class="meta">'+(bvb[j]['s']??'')+'</div>\r\n'+	
+	'<div class="kolvo">'+bvb[j]['a'].length+'</div>\r\n'+	
+	'</label>');
+	kv.innerHTML='<button id="b23"'+((bvb.length>1)?'':' style="visibility:hidden;"')+
+	'>union</button>'+
+	'<button id="b24"'+((bvb.length>0)?'':' style="visibility:hidden;"')+
+	'>destroy</button>'+
+	'<br>'+hb.join('');	
+
+	b23.onclick=si;// обьединяем группы
+	b24.onclick=ci;// дестроим группу	
+
+	console.log(bvb);	
+	//*************
+}
 
 function fx_wat(){// слежка за fx
 	line.setAttribute('x1',fx);
@@ -594,22 +736,36 @@ function fx_wat(){// слежка за fx
 			yrr[q]['stroke']=['purple','red'][+ben];
 			break;
 		}
+		case 32: //space
+		btn10.click();
+		
 		default: break;
 	  }
 	  fx_wat();// слежка за fx
 	  
 	  let a=[...document.querySelectorAll('[id^="ux"]')];
-	  a[q].setAttribute('x',yrr[q]['x']);
-	  a[q].setAttribute('y',yrr[q]['y']);
-	  a[q].setAttribute('width',yrr[q]['w']);
-	  a[q].setAttribute('height',yrr[q]['h']);
-	  a[q].setAttribute('opacity',yrr[q]['opacity']);	  
+	  a[q].setAttribute('x',(yrr[q]['x']).toFixed(1));
+	  a[q].setAttribute('y',(yrr[q]['y']).toFixed(1));
+	  a[q].setAttribute('width',(yrr[q]['w']).toFixed(1));
+	  a[q].setAttribute('height',(yrr[q]['h']).toFixed(1));
+	  /*a[q].setAttribute('opacity',yrr[q]['opacity']);	  
 	  a[q].setAttribute('fill',yrr[q]['fill']);	  
-	  a[q].setAttribute('stroke',yrr[q]['stroke']);
+	  a[q].setAttribute('stroke',yrr[q]['stroke']);*/
 	  
 	  }
 
 	);
+	
+function shz(x){// добавил метку к группе
+let a=[...document.querySelectorAll('.uni')];
+
+//a.forEach((y,i)=>{if(y.checked){bbv[i]=x.innerText;   }});//alert(bbv); 
+//******
+a.forEach((y,i)=>{if(y.checked){bvb[i].s=x.innerText;  }});// alert(bvb); 
+//******
+bbgun();
+
+}	
 //**************************
 
 //*******************************************************************
