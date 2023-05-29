@@ -299,6 +299,7 @@ text-align: center;
   </style>  
 </head>
 <body>
+<div id="bug">890</div>
 	<nav id="nav">
 		<button id="btn1" onclick="
 			ir.forEach((x,i)=>{
@@ -372,6 +373,31 @@ background-attachment: local;
 
 
 <svg id="g" width="900" height="656" viewBox="0 0 900 656" fill="none" onclick="
+
+
+//bug.innerText=`${event.layerX-bph.offsetLeft} ${event.layerY-bph.offsetTop}`;//
+bug.innerText='WHOLE '+whole+' XORS '+xors;
+if(whole.length>0){
+let x1=event.layerX-bph.offsetLeft;
+let y1=event.layerY-bph.offsetTop;
+may=whole.map(i=>mat(i));
+console.table(may);
+let a=may.map(i=>{let x=i.cx-x1, y=i.cy-y1; return {r:(x*x)+(y*y),n:i.ux}});// ~расстояния
+a=a.sort((i,j)=>i.r-j.r)[0];
+let e=document.getElementById('ux'+a.n);
+if(e.getAttribute('fill')=='lime')
+	{
+		e.setAttribute('opacity','.5');
+		e.setAttribute('fill','red');
+		e.setAttribute('stroke','red');
+		e.classList.remove('ink1');
+	}else{
+		e.setAttribute('opacity','.2');
+		e.setAttribute('fill','lime');
+		e.setAttribute('stroke','red');
+		e.classList.remove('ink1');
+	}
+}		
 return;// запрет создания новых квадратов♟
 if(r) {r=false; return 0;}
 let xx=event.clientX-bph.offsetLeft;
@@ -479,6 +505,7 @@ let yrr=[
 ];
 let bvb=[];// все группв букв + метка
 let whole=[],part=[],xors=[];// от кнопки расформировать, от кнопки групировать, разница этих двух
+let may=[];// точки центры
 
 //*квадраты есть, остального нет. получить остальное из квадратов
 let a=[...document.querySelectorAll('[id^="ux"]')];
@@ -501,6 +528,7 @@ return {
 //let c=['none','lime'];
 function fn(x,y,z)
 	{
+	if(!whole.length){
 	ben=true;
 	if(y=='lime')
 	{x.setAttribute('fill','red');x.setAttribute('opacity','.5');yrr[z]['fill']='red'}
@@ -513,8 +541,9 @@ function fn(x,y,z)
 	r=true;
 	q=z;//
 	}
+	}
 
-btn10.addEventListener('click',()=>{
+btn10.addEventListener('click',()=>{// лепим группу
 	let m=[];
 	/*let a7=[...document.querySelectorAll('[id^="ux"]')];
 
@@ -553,6 +582,8 @@ m=[];
 	bbgun();// построение кнопок групп
 	part=m.map(i=>i);
 	xors=whole.filter(i=>part.every(j=>j!==i));// оставшиеся
+	whole=[];//xors.map(i=>i);
+	bug.innerText='WHOLE '+whole+' XORS '+xors;
 });//btn10.'click' группировка
 
 function svet(x){
@@ -821,6 +852,13 @@ a.forEach((y,i)=>{if(y.checked){bvb[i].s=x.innerText;  }});// alert(bvb);
 bbgun();
 
 }	
+
+const mat=z=>{return {
+	cx:+yrr[z]['x']+yrr[z]['width']/2,
+	cy:+yrr[z]['y']+yrr[z]['height']/2,
+	ux:z
+}}
+//may=[mat(77),mat(204),mat(300),mat(488)];
 //**************************
 
 //*******************************************************************
