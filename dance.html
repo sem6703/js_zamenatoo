@@ -11,6 +11,7 @@
   <style>
   /* интересные места пометил юникодами для быстрого поиска */
   /* запрет создания новых квадратов♟*/
+  /* черные квадраты не кликабельны♯ */
   /*♚ ♛ ♜ ♝ ♞ ♠ ♡ ♢ ♣ ♤ ♥ ♦ ♧ ♩ ♪ ♫ ♬ ♭ ♮ ♯ ⓭ */
   
   
@@ -413,7 +414,7 @@ g.innerHTML+=`<rect id=ux${w} x=${(yrr[w].x).toFixed(1)} y=${yrr[w].y} width=${(
 
 <div id=i100>
 <button id="btn10" style="margin-right:100px;padding: 4px;border-radius: 4px;font-size: 16px;">do group</button>
-<button id="btn2" style="padding: 4px;border-radius: 4px;font-size: 16px;"
+<button id="btn2" style="display:none; padding: 4px;border-radius: 4px;font-size: 16px;"
 onclick="
 	proga=proga^1^2;
 	//alert(proga);
@@ -434,6 +435,7 @@ onclick="
 	btn1.onclick();
 "
 > NEXT 🔻️ </button>
+<label style="color:white;"><input type="checkbox" id="noblack">uncklickable black</label>
 
 </div>
 <textarea id="ta1" rows="2" cols="90" style="color: white; background: #1a0e5a;">
@@ -503,7 +505,9 @@ function fn(x,y,z)
 	if(y=='red')//else
 	{x.setAttribute('fill','lime');x.setAttribute('opacity','.2');yrr[z]['fill']='lime'}
 	if(y=='black')//else
-	{x.setAttribute('fill','lime');x.setAttribute('opacity','.2');yrr[z]['fill']='lime'}
+	{
+	if(noblack.checked)return;//некликабелен ♯
+	x.setAttribute('fill','lime');x.setAttribute('opacity','.2');yrr[z]['fill']='lime'}
 	r=true;
 	q=z;//
 	}
