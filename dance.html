@@ -211,7 +211,7 @@ article{
 
 button{
 	margin: 1px;
-	padding: 8px 16px; 
+	padding: 8px 8px; 
 	background: #efd;
 	border: 2px solid blue; 
 	border-radius: 5px;
@@ -474,6 +474,7 @@ let yrr=[
 
 ];
 let bvb=[];// все группв букв + метка
+let whole=[],part=[],xors=[];// от кнопки расформировать, от кнопки групировать, разница этих двух
 
 //*квадраты есть, остального нет. получить остальное из квадратов
 let a=[...document.querySelectorAll('[id^="ux"]')];
@@ -544,7 +545,9 @@ m=[];
 	//**********
 
 	bbgun();// построение кнопок групп
-});
+	part=m.map(i=>i);
+	xors=whole.filter(i=>part.every(j=>j!==i));// оставшиеся
+});//btn10.'click' группировка
 
 function svet(x){
 console.log('я вызвался '+bb[x]);
@@ -559,13 +562,14 @@ let a=[...document.querySelectorAll('[id^="ux"]')];
 a.forEach(i=>{i.classList.remove('ink1')});
 	let kiss=[...document.querySelectorAll('.uni')];
 	let ra=[];
-	kiss.forEach((x,i)=>{if(x.checked){
+	/*kiss.forEach((x,i)=>{if(x.checked){
 	//alert(`обьединяши [${ra}] и [${bb[i]}]`);
 	ra=ra.concat(bb[i]);bb[i]=[];}});
 	bb=bb.filter(i=>i.length);//пустые массивы удалить
 	//alert(ra);
 	if (ra.length) bb.push(ra);
 	bb.sort((a,b)=>b.length-a.length);
+	*/
 	//***********
 	 ra=[];	
 	kiss.forEach((x,i)=>{if(x.checked){
@@ -623,6 +627,7 @@ bb=bb.filter((x,i)=>i!==del);*/
 let del; 
 a.forEach((x,i)=>{if(x.querySelector('.uni').checked){
 	del=i; 
+	whole=bvb[i].a.map(z=>z);
 	bvb[i].a.forEach(y=>
 		{
 		let e=document.getElementById('ux'+y);
@@ -638,7 +643,7 @@ bvb=bvb.filter((x,i)=>i!==del);
 //alert(bb+'   '+del);
 bbgun();// построение кнопок групп
 
-}	
+}	// ci дестрой
 
 function bbgun(){// построение кнопок групп
 	console.log('bvb='+bvb);
@@ -675,17 +680,30 @@ function bbgun(){// построение кнопок групп
 	'>union</button>'+
 	'<button id="b24"'+((bvb.length>0)?'':' style="visibility:hidden;"')+
 	'>destroy</button>'+
+	'<button id="b25"'+((bvb.length>0)?'':' style="visibility:hidden;"')+// остаток
+	'>%</button>'+	
 	'<br>'+hb.join('');	
 
 	b23.onclick=si;// обьединяем группы
 	b24.onclick=ci;// дестроим группу	
-
+	b25.onclick=ni;// выделяем остаток	
 	console.log(bvb);	
 	//*************
-	let alf='АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя';
+	//let alf='АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя';
+	let alf='ОНЕАИТСМВЫЛЗРЙКЯДПУБХГЖЧЬШФЩЦЮЭЪЁонеаитсмвылзрйкядпубхгжчьшфщцюэъё';
 	bvb.forEach((x,i)=>{x.a.forEach(j=>{yrr[j]['a']=alf[i]})});	
 	let aa=yrr.map(i=>i['a']).join('');
 	ta1.value=aa;
+}
+
+function ni(){// остаток
+xors.forEach((x,i)=>{
+		let e=document.getElementById('ux'+x);
+		e.setAttribute('opacity','.5');
+		e.setAttribute('fill','red');
+		e.setAttribute('stroke','red');
+		e.classList.remove('ink1');
+});
 }
 
 function fx_wat(){// слежка за fx
