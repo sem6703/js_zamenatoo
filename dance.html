@@ -572,10 +572,10 @@ a.forEach(i=>{i.classList.remove('ink1')});
 	bb=bb.filter(i=>i.length);//пустые массивы удалить
 	//alert(ra);
 	if (ra.length) bb.push(ra);
-	bb.sort((a,b)=>b.length-a.length);
+	bb.sort((a,b)=>b.length-a.length);ra=[];	
 	*/
 	//***********
-	 ra=[];	
+	 
 	kiss.forEach((x,i)=>{if(x.checked){
 	//alert(`обьединяши [${ra}] и [${bb[i]}]`);
 	//ra=ra.concat(bb[i]);bb[i]=[];}});	 
@@ -604,7 +604,7 @@ bbgun();// построение кнопок групп
 	console.log(bb);
 	*/
 ///////////**/*/*//	
-	}//si
+	}//si групировка групп
 	
 function ci(){ // дестрой группы
 // найдем одну группу под снос
@@ -642,7 +642,8 @@ a.forEach((x,i)=>{if(x.querySelector('.uni').checked){
 		})
 	}});
 bvb=bvb.filter((x,i)=>i!==del);
-
+part=[];
+xors=whole.map(i=>i);//whole.filter(i=>part.every(j=>j!==i));// оставшиеся
 //********
 //alert(bb+'   '+del);
 bbgun();// построение кнопок групп
@@ -684,7 +685,7 @@ function bbgun(){// построение кнопок групп
 	'>union</button>'+
 	'<button id="b24"'+((bvb.length>0)?'':' style="visibility:hidden;"')+
 	'>destroy</button>'+
-	'<button id="b25"'+((bvb.length>0)?'':' style="visibility:hidden;"')+// остаток
+	'<button id="b25"'+((bvb.length>-1)?'':' style="visibility:hidden;"')+// остаток
 	'>%</button>'+	
 	'<br>'+hb.join('');	
 
