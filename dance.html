@@ -350,10 +350,17 @@ padding:1px;
 <button onclick="shz(this)">*</button><br>
 <button onclick="shz(this)">a</button><br>
 <button onclick="shz(this)">b</button><br>
-<button onclick="shz(this)">c</button><br>
-<button onclick="shz(this)">f</button><br>
-<button onclick="shz(this)">d</button><br>
-<button onclick="shz(this)">e</button><br>
+<!--
+<button onclick="bay=bay+0.5; bbgun();this.innerText='bay '+bay;">c</button><br>
+<button onclick="bay=bay-0.5; bbgun();this.innerText='bay '+bay;">f</button><br>
+<button onclick="kay=kay+0.001; bbgun();this.innerText='kay '+kay;">d-</button><br>
+<button onclick="kay=kay-0.001; bbgun();this.innerText='kay '+kay;">e</button><br>
+-->
+<button onclick="bax=bax+0.5; bbgun();this.innerText='bax '+bax;">c</button><br>
+<button onclick="bax=bax-0.5; bbgun();this.innerText='bax '+bax;">f</button><br>
+<button onclick="kax=kax+0.001; bbgun();this.innerText='kax '+kax;">d-</button><br>
+<button onclick="kax=kax-0.001; bbgun();this.innerText='kax '+kax;">e</button><br>
+
 </div>
 
 <div id="d1" style="margin-top: 33px;width:23px;aspect-ratio:1; background: yellow;border:5px solid white;display:none;v0isibility:hidden;"></div>
@@ -491,8 +498,10 @@ onclick="
 //*******************************************************************
 //*******************************************************************
 //**a, q,yrr,ben, fx, fu1, fu2, hb, bb, aa, alf, m, mySet, kax, kay, r,**
-const kax=1.0;//2.06*0.49;//2.6;//1.6;//
-const kay=1.0;//2.06*0.49;//2.6;
+let kax=1.146;//2.06*0.49;//2.6;//1.6;//
+let kay=1.157;//2.06*0.49;//2.6;
+let bax=-3.5,
+bay=-4;
 let fu1=0, fu2=0, fx=0;
 let q=0;// курсор квадратов
 let bb=[];// все группв букв
@@ -708,8 +717,15 @@ function bbgun(){// построение кнопок групп
 	//let
 	let hb=bvb.map((i,j)=>
 	'<label class="ki" onmousedown="svet('+j+')" style="background-position: left -'+
-	(yrr[i.a[0]]['x']*kax)+'px top -'+
-	(yrr[i.a[0]]['y']*kay)+'px">\r\n'+
+	(bax+yrr[i.a[0]]['x']*kax)+'px top -'+
+	(bay+yrr[i.a[0]]['y']*kay)+'px;'+
+	'border::12px;'+
+	//'border: 4px;'+// solid white
+	//'border-right: 16px;'+	// solid white
+	
+	
+	
+	'">\r\n'+
 	'<input class="uni" type="checkbox">\r\n'+
 	'<div class="meta">'+(bvb[j]['s']??'')+'</div>\r\n'+	
 	'<div class="kolvo">'+bvb[j]['a'].length+'</div>\r\n'+	
